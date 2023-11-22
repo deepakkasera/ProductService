@@ -1,5 +1,7 @@
 package com.productservice.productservice.controllers;
 
+import com.productservice.productservice.dtos.FakeStoreProductDto;
+import com.productservice.productservice.dtos.GenericProductDto;
 import com.productservice.productservice.services.FakeStoreProductService;
 import com.productservice.productservice.services.ProductService;
 import lombok.AllArgsConstructor;
@@ -26,9 +28,7 @@ public class ProductController {
 
     //localhost:8080/products/12345
     @GetMapping("/{id}")
-    public String getProductById(@PathVariable("id") Long id) {
-        //Call the FakeStoreProductService getProductById() method.
-        //return "Scaler || Product fetched with id: " + id;
+    public GenericProductDto getProductById(@PathVariable("id") Long id) {
         return productService.getProductById(id);
     }
 
