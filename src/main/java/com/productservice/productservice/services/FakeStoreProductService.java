@@ -13,7 +13,7 @@ import java.util.List;
 //@Primary
 @Service
 public class FakeStoreProductService implements ProductService {
-    private FakeStoreClient fakeStoreAdapter;
+    private final FakeStoreClient fakeStoreAdapter;
     FakeStoreProductService(FakeStoreClient fakeStoreAdapter) {
         this.fakeStoreAdapter = fakeStoreAdapter;
     }

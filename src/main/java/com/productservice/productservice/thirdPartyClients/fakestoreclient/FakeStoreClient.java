@@ -18,12 +18,12 @@ import java.util.List;
 
 @Component
 public class FakeStoreClient {
-    private RestTemplateBuilder restTemplateBuilder;
+    private final RestTemplateBuilder restTemplateBuilder;
     private String fakeStoreUrl;
     private String pathForProducts;
-    private String specificProductUrl;
+    private final String specificProductUrl;
 
-    private String genericProductUrl;
+    private final String genericProductUrl;
 
     FakeStoreClient(RestTemplateBuilder restTemplateBuilder,
                     @Value("${fakestore.api.url}") String fakeStoreUrl,
