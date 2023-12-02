@@ -16,11 +16,9 @@ public class Product extends BaseModel {
     //Category isn't a primitive attribute, it's a relation.
     //category_id in the product table.
     @ManyToOne(optional = false)
-    @JoinColumn(nullable = false)
     private Category category;
 
-    @OneToOne(optional = false)
-    @JoinColumn(nullable = false)
+    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private Price price;
 }
 
