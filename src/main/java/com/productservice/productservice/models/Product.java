@@ -1,7 +1,7 @@
 package com.productservice.productservice.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,12 +11,17 @@ import lombok.Setter;
 public class Product extends BaseModel {
     private String title;
     private String description;
-    private int price;
     private String image;
 
     //Category isn't a primitive attribute, it's a relation.
-    @ManyToOne
+    //category_id in the product table.
+    @ManyToOne(optional = false)
+    @JoinColumn(nullable = false)
     private Category category;
+
+    @OneToOne(optional = false)
+    @JoinColumn(nullable = false)
+    private Price price;
 }
 
 /*
