@@ -12,8 +12,11 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.objenesis.SpringObjenesis;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.xml.stream.events.ProcessingInstruction;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -205,14 +208,34 @@ public class ProductServiceApplication implements CommandLineRunner  {
 //        product3.setCategory(category);
 //        Product savedProduct2 = productRepository.save(product3);
 
-        Optional<Category> optionalCategory = categoryRepository.findById(UUID.fromString("be0bd1ad-abe4-477e-a66e-faff0f2fa03f"));
-
-        Category category = optionalCategory.get();
+//        Optional<Category> optionalCategory = categoryRepository.findById(UUID.fromString("be0bd1ad-abe4-477e-a66e-faff0f2fa03f"));
+//
+//        Category category = optionalCategory.get();
 
 //        List<Product> products = category.getProducts();
 //
 //        for (Product product : products) {
 //            System.out.println(product.getTitle());
 //        }
+
+        //select * from products
+        //List<Product> products = productRepository.findAllByTitleAndDescription("iPhone 15 pro max", "Best iPhone ever.");
+
+        //List<Product> products = productRepository.findAllByPrice_ValueLessThan(50000);
+
+//        Category category = new Category();
+//        category.setName("Samsung");
+//        Category category1 = categoryRepository.save(category);
+//
+//        Price price = new Price();
+//        price.setValue(49000);
+//        price.setCurrency("INR");
+//
+//        Product product = new Product("Samsung Fold 5", "Samsung's Foldable phone", "XYZ",
+//                category1, price);
+//
+//        productRepository.save(product);
+
+        List<Product> products1 = productRepository.findAllByPrice_ValueBetween(29000, 50000);
     }
 }
