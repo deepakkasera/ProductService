@@ -1,13 +1,13 @@
 package com.productservice.productservice.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product extends BaseModel {
     private String title;
     private String description;
