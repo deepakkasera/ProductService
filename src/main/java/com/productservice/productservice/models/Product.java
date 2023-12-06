@@ -20,6 +20,7 @@ public class Product extends BaseModel {
 
     @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private Price price;
+    private int inventoryCount;
 }
 
 /*

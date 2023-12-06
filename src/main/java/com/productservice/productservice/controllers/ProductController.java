@@ -15,8 +15,9 @@ public class ProductController {
     private final ProductService productService;
 
     // @Autowired OPTIONAL
-    //Constructor Injection.
-    ProductController(@Qualifier("fakeStoreProductService") ProductService productService) {
+    // Constructor Injection.
+    // @Qualifier("fakeStoreProductService")
+    ProductController(ProductService productService) {
         this.productService = productService;
     }
 

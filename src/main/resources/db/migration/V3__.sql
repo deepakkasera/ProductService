@@ -1,0 +1,8 @@
+ALTER TABLE some_model
+    ADD name VARCHAR(255) NULL;
+
+ALTER TABLE price
+    ADD value DOUBLE NULL;
+
+ALTER TABLE price
+    MODIFY value DOUBLE NOT NULL;
