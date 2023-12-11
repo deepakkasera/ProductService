@@ -1,14 +1,20 @@
 package com.productservice.productservice.controllers;
 
+import com.productservice.productservice.dtos.GenericProductDto;
 import com.productservice.productservice.exceptions.ProductNotFoundException;
+import com.productservice.productservice.models.Product;
+import com.productservice.productservice.services.ProductService;
 import com.productservice.productservice.thirdPartyClients.fakestoreclient.FakeStoreClient;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class ProductControllerTest {
@@ -17,6 +23,9 @@ public class ProductControllerTest {
 
     @Inject
     private FakeStoreClient fakeStoreClient;
+
+    @MockBean
+    private ProductService productService;
 
 //    ProductControllerTest(FakeStoreClient fakeStoreClient) {
 //        this.fakeStoreClient = fakeStoreClient;
@@ -37,4 +46,39 @@ public class ProductControllerTest {
         assertThrows(ProductNotFoundException.class, () -> productController.getProductById(10000L));
         //assertNull(fakeStoreClient.getProductById(1L));
     }
+
+
+    @Test
+    void testGetProductByIdMocking() throws ProductNotFoundException {
+        GenericProductDto genericProductDto = new GenericProductDto();
+        when(productService.getProductById(any(Long.class))).thenReturn(genericProductDto);
+
+        GenericProductDto genericProductDto1 = productController.getProductById(875897L);
+
+        //assertNull(productController.getProductById(100L));
+        assertEquals(genericProductDto, genericProductDto1);
+    }
+
+    @Test
+    void testGetProductByIdMockingException() throws ProductNotFoundException {
+        when(productService.getProductById(10L))
+                .thenThrow(ProductNotFoundException.class);
+
+        assertThrows(ProductNotFoundException.class,
+                () -> productController.getProductById(1L));
+    }
+
+    @Test
+    void testGetProductByIdForCustomLogic() throws ProductNotFoundException {
+        GenericProductDto genericProductDto = new GenericProductDto();
+
+        when(productService.getProductById(10L))
+                .thenReturn(genericProductDto);
+
+
+        GenericProductDto genericProductDto1 =  productController.getProductById(10L);
+        assertEquals(genericProductDto, genericProductDto1);
+    }
+
+
 }
