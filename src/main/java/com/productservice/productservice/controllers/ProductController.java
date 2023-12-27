@@ -5,6 +5,7 @@ import com.productservice.productservice.exceptions.ProductNotFoundException;
 import com.productservice.productservice.services.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +29,8 @@ public class ProductController {
 
     //localhost:8080/products/12345
     @GetMapping("/{id}")
-    public GenericProductDto getProductById(@PathVariable("id") Long id) throws ProductNotFoundException {
-        GenericProductDto genericProductDto = productService.getProductById(id);
+    public GenericProductDto getProductById(@RequestHeader(HttpHeaders.AUTHORIZATION) String authToken, @PathVariable("id") Long id) throws ProductNotFoundException {
+        GenericProductDto genericProductDto = productService.getProductById(authToken, id);
 //        GenericProductDto genericProductDto1 = new GenericProductDto();
         return genericProductDto;
     }

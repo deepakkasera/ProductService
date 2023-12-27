@@ -6,7 +6,7 @@ import com.productservice.productservice.exceptions.ProductNotFoundException;
 import java.util.List;
 
 public interface ProductService {
-    GenericProductDto getProductById(Long id) throws ProductNotFoundException;
+    GenericProductDto getProductById(String authToken, Long id) throws ProductNotFoundException;
 
     List<GenericProductDto> getAllProducts();
 
