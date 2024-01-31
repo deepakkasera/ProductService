@@ -30,6 +30,7 @@ public class Product extends BaseModel {
         //genericProductDto.setPrice(product.getPrice());
         genericProductDto.setImage(product.getImage());
         //genericProductDto.setId(product.getId());
+        genericProductDto.setInventoryCount(product.getInventoryCount());
         return genericProductDto;
     }
 }

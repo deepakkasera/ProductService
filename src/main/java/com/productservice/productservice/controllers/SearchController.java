@@ -30,7 +30,8 @@ public class SearchController {
 
     @PostMapping
     public Page<GenericProductDto> searchProducts(@RequestBody SearchRequestDto requestDto) {
-        List<GenericProductDto> genericProductDtos = searchService.searchProducts(requestDto.getQuery(), requestDto.getPageNumber(), requestDto.getItemsPerPage());
+        List<GenericProductDto> genericProductDtos = searchService.searchProducts(requestDto.getQuery(), requestDto.getPageNumber(),
+                requestDto.getItemsPerPage(), requestDto.getSortParams());
         Page<GenericProductDto> genericProductDtoPage = new PageImpl<>(
                 genericProductDtos
         );

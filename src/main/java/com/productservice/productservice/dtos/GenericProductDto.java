@@ -13,6 +13,5 @@ public class GenericProductDto {
     private String category;
     private String description;
     private String image;
-
-
+    private int inventoryCount;
 }
