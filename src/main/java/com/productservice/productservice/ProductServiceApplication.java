@@ -1,40 +1,33 @@
 package com.productservice.productservice;
 
 import com.productservice.productservice.models.Category;
-import com.productservice.productservice.models.Order;
 import com.productservice.productservice.models.Price;
 import com.productservice.productservice.models.Product;
-import com.productservice.productservice.repositories.OrderRepository;
-import com.productservice.productservice.repositories.PriceRepository;
 import com.productservice.productservice.repositories.CategoryRepository;
+import com.productservice.productservice.repositories.PriceRepository;
 import com.productservice.productservice.repositories.ProductRepository;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.objenesis.SpringObjenesis;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.xml.stream.events.ProcessingInstruction;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @SpringBootApplication
-public class ProductServiceApplication   {
+public class ProductServiceApplication implements CommandLineRunner {
 
-//    private final CategoryRepository categoryRepository;
-//    private final ProductRepository productRepository;
-//    private final PriceRepository priceRepository;
+    private final CategoryRepository categoryRepository;
+    private final ProductRepository productRepository;
+    private final PriceRepository priceRepository;
 //
-//    public ProductServiceApplication(CategoryRepository categoryRepository,
-//                                     ProductRepository productRepository,
-//                                     PriceRepository priceRepository) {
-//        this.categoryRepository = categoryRepository;
-//        this.productRepository = productRepository;
-//        this.priceRepository = priceRepository;
-//    }
+    public ProductServiceApplication(CategoryRepository categoryRepository,
+                                     ProductRepository productRepository,
+                                     PriceRepository priceRepository) {
+        this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
+        this.priceRepository = priceRepository;
+    }
 //    private MentorRepository mentorRepository;
 //    private UserRepository userRepository;
 //    private StudentRepository studentRepository;
@@ -63,6 +56,52 @@ public class ProductServiceApplication   {
 
     public static void main(String[] args) {
         SpringApplication.run(ProductServiceApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+//        Category category = new Category();
+//        category.setName("Apple Devices");
+//
+//        Category savedCategory = categoryRepository.save(category);
+//
+
+//        Optional<Category> optionalCategory = categoryRepository.findById(UUID.fromString("f41ebf01-5cc5-4f4c-a8aa-6dcd149e481d"));
+//        if (optionalCategory.isEmpty()) {
+//            throw new Exception("Category was null");
+//        }
+
+        //Category category1 = optionalCategory.get();
+//        Product product = new Product();
+//        product.setTitle("iPhone 15 pro");
+//        product.setDescription("Best iPhone ever");
+//        product.setCategory(savedCategory);
+//
+//        Product savedProduct = productRepository.save(product);
+
+
+        //Find all the products with category = Apple Devices.
+//        List<Product> products = category.getProducts();
+//        for (Product product : products) {
+//            System.out.println(product.getTitle());
+//        }
+
+//        Price price = new Price();
+//        price.setCurrency("INR");
+//        price.setValue(100000);
+//        //Price savedPrice = priceRepository.save(price);
+//
+//        Category category2 = new Category();
+//        category2.setName("Apple Devices");
+//        Category savedCategoy = categoryRepository.save(category2);
+//
+//        Product product1 = new Product();
+//        product1.setTitle("iPhone 15 pro");
+//        product1.setDescription("Best iPhone ever");
+//        product1.setCategory(savedCategoy);
+//        product1.setPrice(price);
+//
+//        Product savedProduct1 = productRepository.save(product);
     }
 
 //    @Override

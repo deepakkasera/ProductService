@@ -3,6 +3,7 @@ package com.productservice.productservice.repositories;
 import com.productservice.productservice.models.Product;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.FluentQuery;
@@ -19,6 +20,9 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findAll(); // Get all the products from the Product table.
 
     List<Product> findAllByTitle(String title);
+
+    List<Product> findAllByTitleContainingIgnoreCase(String title, Pageable pageable);
+
 
     List<Product> findAllByTitleAndDescription(String title, String desc);
 

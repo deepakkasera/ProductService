@@ -1,5 +1,6 @@
 package com.productservice.productservice.dtos;
 
+import com.productservice.productservice.models.Product;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,4 +13,6 @@ public class GenericProductDto {
     private String category;
     private String description;
     private String image;
+
+
 }
