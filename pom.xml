@@ -87,15 +87,33 @@
             <artifactId>spring-security-oauth2-resource-server</artifactId>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.opensearch.client/spring-data-opensearch-starter -->
+<!--        <dependency>-->
+<!--            <groupId>org.opensearch.client</groupId>-->
+<!--            <artifactId>spring-data-opensearch-starter</artifactId>-->
+<!--            <version>1.3.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.opensearch.client</groupId>-->
+<!--            <artifactId>spring-data-opensearch</artifactId>-->
+<!--            <version>1.3.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.data</groupId>-->
+<!--            <artifactId>spring-data-redis</artifactId>-->
+<!--            <version>2.3.3.RELEASE</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>redis.clients</groupId>-->
+<!--            <artifactId>jedis</artifactId>-->
+<!--            <version>5.0.2</version>-->
+<!--            <type>jar</type>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>org.opensearch.client</groupId>
-            <artifactId>spring-data-opensearch-starter</artifactId>
-            <version>1.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.opensearch.client</groupId>
-            <artifactId>spring-data-opensearch</artifactId>
-            <version>1.3.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.7.2</version>
         </dependency>
     </dependencies>
 

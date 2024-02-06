@@ -3,14 +3,14 @@ package com.productservice.productservice.models;
 import com.productservice.productservice.dtos.GenericProductDto;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.elasticsearch.annotations.Document;
+//import org.springframework.data.elasticsearch.annotations.Document;
 
 @Getter
 @Setter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(indexName = "products")
+//@Document(indexName = "products")
 public class Product extends BaseModel {
     private String title;
     private String description;
