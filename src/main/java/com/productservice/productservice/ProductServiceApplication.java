@@ -9,13 +9,15 @@ import com.productservice.productservice.repositories.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @SpringBootApplication
-public class ProductServiceApplication implements CommandLineRunner {
+@EnableDiscoveryClient
+public class ProductServiceApplication {
 
 //    private final CategoryRepository categoryRepository;
 //    private final ProductRepository productRepository;
@@ -58,8 +60,8 @@ public class ProductServiceApplication implements CommandLineRunner {
         SpringApplication.run(ProductServiceApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
+//    @Override
+//    public void run(String... args) throws Exception {
 //        Category category = new Category();
 //        category.setName("Apple Devices");
 //
@@ -276,4 +278,4 @@ public class ProductServiceApplication implements CommandLineRunner {
 //        productRepository.save(product);
 
         //List<Product> products1 = productRepository.findAllByPrice_ValueBetween(29000, 50000);
-}
+//}

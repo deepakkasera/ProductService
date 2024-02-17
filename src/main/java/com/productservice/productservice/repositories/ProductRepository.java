@@ -3,6 +3,7 @@ package com.productservice.productservice.repositories;
 import com.productservice.productservice.models.Product;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,6 +24,11 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findAllByTitle(String title);
 
     List<Product> findAllByTitleContainingIgnoreCase(String title, Pageable pageable);
+    /*
+
+    Select * from products where lower(title) = "iphone"
+    //offset and limit.
+     */
 
 
     List<Product> findAllByTitleAndDescription(String title, String desc);

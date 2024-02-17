@@ -7,6 +7,7 @@ import com.productservice.productservice.models.Product;
 //import com.productservice.productservice.repositories.OpenSearchProductRepository;
 import com.productservice.productservice.repositories.ProductRepository;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +41,8 @@ public class SelfProductServiceImpl implements ProductService {
 
     @Override
     public List<GenericProductDto> getAllProducts() {
+//        PageRequest pageRequest = PageRequest.of(1, 2);
+//        List<Product> products = productRepository.findAllByTitleContainingIgnoreCase("iPhone", pageRequest);
         return null;
     }
 
@@ -50,12 +53,12 @@ public class SelfProductServiceImpl implements ProductService {
 
     @Override
     public GenericProductDto createProduct(GenericProductDto genericProductDto) {
-        Product product = new Product();
-        product.setTitle(genericProductDto.getTitle());
-        product.setImage(genericProductDto.getImage());
-        //
-
-        Product savedProduct  = productRepository.save(product);
+//        Product product = new Product();
+//        product.setTitle(genericProductDto.getTitle());
+//        product.setImage(genericProductDto.getImage());
+//        //
+//
+//        Product savedProduct  = productRepository.save(product);
         //openSearchProductRepository.save(savedProduct);
         return null;
     }
