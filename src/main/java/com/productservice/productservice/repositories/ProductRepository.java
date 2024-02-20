@@ -25,7 +25,6 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
 
     List<Product> findAllByTitleContainingIgnoreCase(String title, Pageable pageable);
     /*
-
     Select * from products where lower(title) = "iphone"
     //offset and limit.
      */

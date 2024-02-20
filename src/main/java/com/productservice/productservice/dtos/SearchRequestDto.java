@@ -9,9 +9,9 @@ import java.util.List;
 @Getter
 @Setter
 public class SearchRequestDto {
-    private String query; //Title of the product
+    private String title;
     private int pageNumber;
-    private int itemsPerPage;
-    //private List<String> sortParams; //['title', 'price', 'rating']
+    private int pageSize;
+    //private String sortParam;
     private List<SortParam> sortParams;
 }
